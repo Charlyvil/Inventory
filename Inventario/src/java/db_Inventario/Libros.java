@@ -238,7 +238,7 @@ public class Libros implements Serializable {
 
     @Override
     public String toString() {
-        return "db_Inventario.Libros[ idLibro=" + idLibro + " ]";
+        return tituloLibro;
     }
     
 }

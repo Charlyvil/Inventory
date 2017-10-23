@@ -109,7 +109,7 @@ public class Genero implements Serializable {
 
     @Override
     public String toString() {
-        return "db_Inventario.Genero[ idGenero=" + idGenero + " ]";
+        return genero;
     }
     
 }

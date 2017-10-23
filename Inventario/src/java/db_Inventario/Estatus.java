@@ -120,7 +120,7 @@ public class Estatus implements Serializable {
 
     @Override
     public String toString() {
-        return "db_Inventario.Estatus[ idEstatus=" + idEstatus + " ]";
+        return estatus;
     }
     
 }
