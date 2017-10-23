@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewPeliculasTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewPeliculasLabel_idPelicula}"/>
+                    <h:outputText value="#{peliculasController.selected.idPelicula}" title="#{bundle.ViewPeliculasTitle_idPelicula}"/>
+                    <h:outputText value="#{bundle.ViewPeliculasLabel_tituloPelicula}"/>
+                    <h:outputText value="#{peliculasController.selected.tituloPelicula}" title="#{bundle.ViewPeliculasTitle_tituloPelicula}"/>
+                    <h:outputText value="#{bundle.ViewPeliculasLabel_duracionPelicula}"/>
+                    <h:outputText value="#{peliculasController.selected.duracionPelicula}" title="#{bundle.ViewPeliculasTitle_duracionPelicula}"/>
+                    <h:outputText value="#{bundle.ViewPeliculasLabel_backCover}"/>
+                    <h:outputText value="#{peliculasController.selected.backCover}" title="#{bundle.ViewPeliculasTitle_backCover}"/>
+                    <h:outputText value="#{bundle.ViewPeliculasLabel_frontCover}"/>
+                    <h:outputText value="#{peliculasController.selected.frontCover}" title="#{bundle.ViewPeliculasTitle_frontCover}"/>
+                    <h:outputText value="#{bundle.ViewPeliculasLabel_idIdioma}"/>
+                    <h:outputText value="#{peliculasController.selected.idIdioma}" title="#{bundle.ViewPeliculasTitle_idIdioma}"/>
+                    <h:outputText value="#{bundle.ViewPeliculasLabel_idSubtitulos}"/>
+                    <h:outputText value="#{peliculasController.selected.idSubtitulos}" title="#{bundle.ViewPeliculasTitle_idSubtitulos}"/>
+                    <h:outputText value="#{bundle.ViewPeliculasLabel_idActor}"/>
+                    <h:outputText value="#{peliculasController.selected.idActor}" title="#{bundle.ViewPeliculasTitle_idActor}"/>
+                    <h:outputText value="#{bundle.ViewPeliculasLabel_idRating}"/>
+                    <h:outputText value="#{peliculasController.selected.idRating}" title="#{bundle.ViewPeliculasTitle_idRating}"/>
+                    <h:outputText value="#{bundle.ViewPeliculasLabel_idGenero}"/>
+                    <h:outputText value="#{peliculasController.selected.idGenero}" title="#{bundle.ViewPeliculasTitle_idGenero}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{peliculasController.destroyAndView}" value="#{bundle.ViewPeliculasDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewPeliculasEditLink}"/>
+                <br />
+                <h:commandLink action="#{peliculasController.prepareCreate}" value="#{bundle.ViewPeliculasCreateLink}" />
+                <br />
+                <h:commandLink action="#{peliculasController.prepareList}" value="#{bundle.ViewPeliculasShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewPeliculasIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

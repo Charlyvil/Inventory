@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewRevistasTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewRevistasLabel_idRevista}"/>
+                    <h:outputText value="#{revistasController.selected.idRevista}" title="#{bundle.ViewRevistasTitle_idRevista}"/>
+                    <h:outputText value="#{bundle.ViewRevistasLabel_tituloRevista}"/>
+                    <h:outputText value="#{revistasController.selected.tituloRevista}" title="#{bundle.ViewRevistasTitle_tituloRevista}"/>
+                    <h:outputText value="#{bundle.ViewRevistasLabel_nombreRevista}"/>
+                    <h:outputText value="#{revistasController.selected.nombreRevista}" title="#{bundle.ViewRevistasTitle_nombreRevista}"/>
+                    <h:outputText value="#{bundle.ViewRevistasLabel_fecha}"/>
+                    <h:outputText value="#{revistasController.selected.fecha}" title="#{bundle.ViewRevistasTitle_fecha}"/>
+                    <h:outputText value="#{bundle.ViewRevistasLabel_idEstado}"/>
+                    <h:outputText value="#{revistasController.selected.idEstado}" title="#{bundle.ViewRevistasTitle_idEstado}"/>
+                    <h:outputText value="#{bundle.ViewRevistasLabel_idRating}"/>
+                    <h:outputText value="#{revistasController.selected.idRating}" title="#{bundle.ViewRevistasTitle_idRating}"/>
+                    <h:outputText value="#{bundle.ViewRevistasLabel_idEditorial}"/>
+                    <h:outputText value="#{revistasController.selected.idEditorial}" title="#{bundle.ViewRevistasTitle_idEditorial}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{revistasController.destroyAndView}" value="#{bundle.ViewRevistasDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewRevistasEditLink}"/>
+                <br />
+                <h:commandLink action="#{revistasController.prepareCreate}" value="#{bundle.ViewRevistasCreateLink}" />
+                <br />
+                <h:commandLink action="#{revistasController.prepareList}" value="#{bundle.ViewRevistasShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewRevistasIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

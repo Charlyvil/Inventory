@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListHojasTrabajoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListHojasTrabajoEmpty}" rendered="#{hojasTrabajoController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{hojasTrabajoController.items.rowCount > 0}">
+                    <h:outputText value="#{hojasTrabajoController.pagination.pageFirstItem + 1}..#{hojasTrabajoController.pagination.pageLastItem + 1}/#{hojasTrabajoController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{hojasTrabajoController.previous}" value="#{bundle.Previous} #{hojasTrabajoController.pagination.pageSize}" rendered="#{hojasTrabajoController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{hojasTrabajoController.next}" value="#{bundle.Next} #{hojasTrabajoController.pagination.pageSize}" rendered="#{hojasTrabajoController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{hojasTrabajoController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListHojasTrabajoTitle_idHoja}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idHoja}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListHojasTrabajoTitle_duracionHoja}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.duracionHoja}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListHojasTrabajoTitle_nombreHoja}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nombreHoja}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListHojasTrabajoTitle_fecha}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fecha}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListHojasTrabajoTitle_idEstatus}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idEstatus}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListHojasTrabajoTitle_idHabilidad}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idHabilidad}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListHojasTrabajoTitle_idMaterial}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idMaterial}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListHojasTrabajoTitle_idNivel}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idNivel}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListHojasTrabajoTitle_idAutor}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idAutor}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListHojasTrabajoTitle_idIdioma}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idIdioma}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListHojasTrabajoTitle_idRating}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idRating}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{hojasTrabajoController.prepareView}" value="#{bundle.ListHojasTrabajoViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{hojasTrabajoController.prepareEdit}" value="#{bundle.ListHojasTrabajoEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{hojasTrabajoController.destroy}" value="#{bundle.ListHojasTrabajoDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{hojasTrabajoController.prepareCreate}" value="#{bundle.ListHojasTrabajoCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListHojasTrabajoIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
