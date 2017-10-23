@@ -15,14 +15,16 @@
     </h:head>
 
     <h:body>
-        <b:navBar brand="CADDI" brandHref="#">
+        <div align="center"><h:graphicImage value="http://www.ugto.mx/images/escudo-universidad-de-guanajuato-4.jpg"/></div>
+        <b:navBar brandHref="#">
         <b:navbarLinks>
         <b:navLink value="Home" outcome="/index"></b:navLink>
-        <b:navLink value="Peliculas" outcome="/Formulario_Peliculas"></b:navLink>
-        <b:navLink value="Revistas" outcome="/formularioRevistas"></b:navLink>
-        <b:navLink value="Libros" outcome="/formularioLibro"></b:navLink>
-        <b:navLink value="Link" href="#"></b:navLink>
-        <b:navLink value="Link" href="#"></b:navLink>
+        <b:navLink value="Peliculas" outcome="/peliculas/List.xhtml"></b:navLink>
+        <b:navLink value="Revistas" outcome="/revistas/List.xhtml"></b:navLink>
+        <b:navLink value="Libros" outcome="/libros/List.xhtml"></b:navLink>
+        <b:navLink value="Hojas de trabajo" outcome="/hojasTrabajo/List.xhtml"></b:navLink>
+        <b:navLink value="Juegos" outcome="/juegos/List.xhtml"></b:navLink>
+        
         </b:navbarLinks>
         </b:navBar>
         
