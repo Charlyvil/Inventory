@@ -5,9 +5,9 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-    <ui:composition template="/template.xhtml">
+    <ui:composition template="../template.xhtml">
         <ui:define name="title">
-            <h:outputText value="#{bundle.ListRevistasTitle}"></h:outputText>
+            <h:outputText value="Lista de revistas"></h:outputText>
         </ui:define>
         <ui:define name="body">
             <h:form styleClass="jsfcrud_list_form">
@@ -75,10 +75,10 @@
                     </h:dataTable>
                 </h:panelGroup>
                 <br />
-                <h:commandLink action="#{revistasController.prepareCreate}" value="#{bundle.ListRevistasCreateLink}"/>
+                <h:commandButton action="#{revistasController.prepareCreate}" value="Agregar nueva revista"/>
                 <br />
                 <br />
-                <h:link outcome="/index" value="#{bundle.ListRevistasIndexLink}"/>
+                
             </h:form>
         </ui:define>
     </ui:composition>

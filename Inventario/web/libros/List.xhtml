@@ -7,7 +7,7 @@
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
-            <h:outputText value="#{bundle.ListLibrosTitle}"></h:outputText>
+            <h:outputText value="Lista de libros"></h:outputText>
         </ui:define>
         <ui:define name="body">
             <h:form styleClass="jsfcrud_list_form">
@@ -111,10 +111,10 @@
                     </h:dataTable>
                 </h:panelGroup>
                 <br />
-                <h:commandLink action="#{librosController.prepareCreate}" value="#{bundle.ListLibrosCreateLink}"/>
+                <h:commandButton action="#{librosController.prepareCreate}" value="Agregar nuevo libro"/>
                 <br />
                 <br />
-                <h:link outcome="/index" value="#{bundle.ListLibrosIndexLink}"/>
+                
             </h:form>
         </ui:define>
     </ui:composition>

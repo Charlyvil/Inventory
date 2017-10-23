@@ -131,7 +131,7 @@ public class Nivel implements Serializable {
 
     @Override
     public String toString() {
-        return "db_Inventario.Nivel[ idNivel=" + idNivel + " ]";
+        return nivel;
     }
     
 }

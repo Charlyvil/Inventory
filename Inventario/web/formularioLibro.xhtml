@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+            xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      >
+    <h:head>
+        <title>Formulario Libros</title>
+    </h:head>
+    <h:body>
+        <h1>Formulario de Libros</h1>
+        <h:form>
+            <h:panelGrid columns="2">
+                
+                    <h:outputLabel value="ISBN" for="isbn" />
+                    <h:inputText id="isbn" value="#{librosController.selected.isbn}" title="#{bundle.CreateLibrosTitle_isbn}" required="true" requiredMessage="#{bundle.CreateLibrosRequiredMessage_isbn}"/>
+                    <h:outputLabel value="Cantidad" for="cantidad" />
+                    <h:inputText id="cantidad" value="#{librosController.selected.cantidad}" title="#{bundle.CreateLibrosTitle_cantidad}" required="true" requiredMessage="#{bundle.CreateLibrosRequiredMessage_cantidad}"/>
+                    <h:outputLabel value="Area del Libro" for="areaLibro" />
+                    <h:inputText id="areaLibro" value="#{librosController.selected.areaLibro}" title="#{bundle.CreateLibrosTitle_areaLibro}" required="true" requiredMessage="#{bundle.CreateLibrosRequiredMessage_areaLibro}"/>
+                    <h:outputLabel value="Año de publicación" for="añoPublicacion" />
+                    <h:inputText id="añoPublicacion" value="#{librosController.selected.añoPublicacion}" title="#{bundle.CreateLibrosTitle_añoPublicacion}" required="true" requiredMessage="#{bundle.CreateLibrosRequiredMessage_añoPublicacion}"/>
+                    <h:outputLabel value="Título del libro" for="tituloLibro" />
+                    <h:inputText id="tituloLibro" value="#{librosController.selected.tituloLibro}" title="#{bundle.CreateLibrosTitle_tituloLibro}" required="true" requiredMessage="#{bundle.CreateLibrosRequiredMessage_tituloLibro}"/>
+                    <h:outputLabel value="Tipo de libro" for="tipoLibro" />
+                    <h:inputText id="tipoLibro" value="#{librosController.selected.tipoLibro}" title="#{bundle.CreateLibrosTitle_tipoLibro}" required="true" requiredMessage="#{bundle.CreateLibrosRequiredMessage_tipoLibro}"/>
+                    <h:outputLabel value="¿Contiene Audio?" for="audioLibro" />
+
+                    <h:inputText id="audioLibro" value="#{librosController.selected.audioLibro}" title="#{bundle.CreateLibrosTitle_audioLibro}" required="true" requiredMessage="#{bundle.CreateLibrosRequiredMessage_audioLibro}"/>
+
+                    <h:outputLabel value="Idioma" for="idIdioma" />
+                    <h:selectOneMenu id="idIdioma" value="#{librosController.selected.idIdioma}" title="#{bundle.CreateLibrosTitle_idIdioma}" required="true" requiredMessage="#{bundle.CreateLibrosRequiredMessage_idIdioma}">
+                        <f:selectItems value="#{idiomaController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="Nivel" for="idNivel" />
+                    <h:selectOneMenu id="idNivel" value="#{librosController.selected.idNivel}" title="#{bundle.CreateLibrosTitle_idNivel}" required="true" requiredMessage="#{bundle.CreateLibrosRequiredMessage_idNivel}">
+                        <f:selectItems value="#{nivelController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="Autor Libro" for="idAutorlibros" />
+                    <h:selectOneMenu id="idAutorlibros" value="#{librosController.selected.idAutorlibros}" title="#{bundle.CreateLibrosTitle_idAutorlibros}" required="true" requiredMessage="#{bundle.CreateLibrosRequiredMessage_idAutorlibros}">
+                        <f:selectItems value="#{autorlibrosController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="Editorial" for="idEditorial" />
+                    <h:selectOneMenu id="idEditorial" value="#{librosController.selected.idEditorial}" title="#{bundle.CreateLibrosTitle_idEditorial}" required="true" requiredMessage="#{bundle.CreateLibrosRequiredMessage_idEditorial}">
+                        <f:selectItems value="#{editorialController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+            </h:panelGrid>
+            <br/>
+                
+            <h:commandButton action="#{librosController.create}" value="#{bundle.CreateLibrosSaveLink}" />
+        </h:form>
+        
+    </h:body>
+</html>

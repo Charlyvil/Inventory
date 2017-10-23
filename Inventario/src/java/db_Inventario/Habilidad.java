@@ -120,7 +120,7 @@ public class Habilidad implements Serializable {
 
     @Override
     public String toString() {
-        return "db_Inventario.Habilidad[ idHabilidad=" + idHabilidad + " ]";
+        return nombreHabilidad;
     }
     
 }

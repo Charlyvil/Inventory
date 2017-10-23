@@ -142,7 +142,7 @@ public class Idioma implements Serializable {
 
     @Override
     public String toString() {
-        return "db_Inventario.Idioma[ idIdioma=" + idIdioma + " ]";
+        return idioma;
     }
     
 }
