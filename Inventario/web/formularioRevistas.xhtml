@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h1>Formulario de revista</h1>
+        <h:form>
+            <h:panelGrid columns="2">
+                    <h:outputLabel value="Título" for="tituloRevista" />
+                    <h:inputText id="tituloRevista" value="#{revistasController.selected.tituloRevista}" title="#{bundle.CreateRevistasTitle_tituloRevista}" required="true" requiredMessage="#{bundle.CreateRevistasRequiredMessage_tituloRevista}"/>
+                    <h:outputLabel value="Nombre" for="nombreRevista" />
+                    <h:inputText id="nombreRevista" value="#{revistasController.selected.nombreRevista}" title="#{bundle.CreateRevistasTitle_nombreRevista}" required="true" requiredMessage="#{bundle.CreateRevistasRequiredMessage_nombreRevista}"/>
+                    <h:outputLabel value="Fecha de publicación" for="fecha" />
+                    <h:inputText id="fecha" value="#{revistasController.selected.fecha}" title="#{bundle.CreateRevistasTitle_fecha}" required="true" requiredMessage="#{bundle.CreateRevistasRequiredMessage_fecha}"/>
+                    <h:outputLabel value="Estado" for="idEstado" />
+                    <h:inputText id="idEstado" value="#{revistasController.selected.idEstado}" title="#{bundle.CreateRevistasTitle_idEstado}" required="true" requiredMessage="#{bundle.CreateRevistasRequiredMessage_idEstado}"/>
+                    <h:outputLabel value="Editorial" for="idEditorial" />
+                    <h:selectOneMenu id="idEditorial" value="#{revistasController.selected.idEditorial}" title="#{bundle.CreateRevistasTitle_idEditorial}" required="true" requiredMessage="#{bundle.CreateRevistasRequiredMessage_idEditorial}">
+                        <f:selectItems value="#{editorialController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+            </h:panelGrid>
+            <h:commandButton action="#{revistasController.create}" value="#{bundle.CreateRevistasSaveLink}" />
+        </h:form>
+    </h:body>
+</html>
