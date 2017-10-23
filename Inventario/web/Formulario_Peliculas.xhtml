@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+            xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <head>
+        <title>Formulario de Peliculas</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+        <h1>Formulario de Peliculas</h1>
+        <h:form>
+            <h:panelGrid columns="2">
+                
+                <h:outputLabel value="Titulo: " />
+                <h:inputText id="tituloPelicula" value="#{peliculasController.selected.tituloPelicula}" title="#{bundle.CreatePeliculasTitle_tituloPelicula}" required="true" requiredMessage="#{bundle.CreatePeliculasRequiredMessage_tituloPelicula}"/>
+                
+                <h:outputLabel value="Nombre del actor/actriz: "/>
+                <h:inputText id="nombreActor" value="#{actorController.selected.nombreActor}" title="#{bundle.CreateActorTitle_nombreActor}" required="true" requiredMessage="#{bundle.CreateActorRequiredMessage_nombreActor}"/>
+                
+                <h:outputLabel value="Apellido del actor/actriz: "/>
+                <h:inputText id="apellidoActor" value="#{actorController.selected.apellidoActor}" title="#{bundle.CreateActorTitle_apellidoActor}" required="true" requiredMessage="#{bundle.CreateActorRequiredMessage_apellidoActor}"/>
+            
+                <h:outputLabel value="Duración: "/>
+                <h:inputText id="duracionPelicula" value="#{peliculasController.selected.duracionPelicula}" title="#{bundle.CreatePeliculasTitle_duracionPelicula}" required="true" requiredMessage="#{bundle.CreatePeliculasRequiredMessage_duracionPelicula}"/>
+                
+                <h:outputLabel value="Idioma: "/>
+                <h:selectOneMenu id="idIdioma" value="#{peliculasController.selected.idIdioma}" title="#{bundle.CreatePeliculasTitle_idIdioma}" required="true" requiredMessage="#{bundle.CreatePeliculasRequiredMessage_idIdioma}">
+                        <f:selectItems value="#{idiomaController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                
+                <h:outputLabel value="Subtitulos: "/>
+                <h:selectOneMenu id="idSubtitulos" value="#{peliculasController.selected.idSubtitulos}" title="#{bundle.CreatePeliculasTitle_idSubtitulos}" required="true" requiredMessage="#{bundle.CreatePeliculasRequiredMessage_idSubtitulos}">
+                        <f:selectItems value="#{subtitulosController.itemsAvailableSelectOne}"/>
+                </h:selectOneMenu>
+                
+                <h:outputLabel value="Genero: "/>
+                <h:selectOneMenu id="idGenero" value="#{peliculasController.selected.idGenero}" title="#{bundle.CreatePeliculasTitle_idGenero}" required="true" requiredMessage="#{bundle.CreatePeliculasRequiredMessage_idGenero}">
+                        <f:selectItems value="#{generoController.itemsAvailableSelectOne}"/>
+                </h:selectOneMenu>
+                
+                <br/>
+                <h:commandButton action="#{peliculasController.create}" value="#{bundle.CreatePeliculasSaveLink}" />
+                
+                
+            </h:panelGrid>
+        </h:form>
+    </body>
+</html>
