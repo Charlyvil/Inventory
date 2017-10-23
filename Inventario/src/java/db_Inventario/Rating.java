@@ -151,7 +151,7 @@ public class Rating implements Serializable {
 
     @Override
     public String toString() {
-        return "db_Inventario.Rating[ idRating=" + idRating + " ]";
+        return ""+rating;
     }
     
 }

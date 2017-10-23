@@ -109,7 +109,7 @@ public class Subtitulos implements Serializable {
 
     @Override
     public String toString() {
-        return "db_Inventario.Subtitulos[ idSubtitulos=" + idSubtitulos + " ]";
+        return idiomaSubtitulos;
     }
     
 }

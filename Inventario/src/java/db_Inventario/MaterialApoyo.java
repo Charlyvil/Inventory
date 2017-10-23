@@ -109,7 +109,7 @@ public class MaterialApoyo implements Serializable {
 
     @Override
     public String toString() {
-        return "db_Inventario.MaterialApoyo[ idMaterial=" + idMaterial + " ]";
+        return nombreMaterial;
     }
     
 }
