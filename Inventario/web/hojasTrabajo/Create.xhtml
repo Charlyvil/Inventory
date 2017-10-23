@@ -3,92 +3,60 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:b="http://bootsfaces.net/ui"
-      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
-            <h:outputText value="#{bundle.CreateHojasTrabajoTitle}"></h:outputText>
+            <h:outputText value="Crear hoja de trabajo"></h:outputText>
         </ui:define>
         <ui:define name="body">
-            
-            <div class="container">
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
-            
             <h:form>
-                <div class="form group has-success">
-                    <h:outputLabel value="Name:" for="nombreHoja" />
-                    <b:inputText id="nombreHoja" a:placeholder="Worksheet name" value="#{hojasTrabajoController.selected.nombreHoja}" title="#{bundle.CreateHojasTrabajoTitle_nombreHoja}" required="true" requiredMessage="#{bundle.CreateHojasTrabajoRequiredMessage_nombreHoja}"/>
-                   
-                </div>
-                <div class="form group has-success">
-                    <h:outputLabel value="Duration:" for="duracionHoja" />
-                    <b:inputText id="duracionHoja" a:placeholder="Worksheet duration" value="#{hojasTrabajoController.selected.duracionHoja}" title="#{bundle.CreateHojasTrabajoTitle_duracionHoja}" required="true" requiredMessage="#{bundle.CreateHojasTrabajoRequiredMessage_duracionHoja}"/>
-                  </div>
-                <div class="form group has-success">
-                    <h:outputLabel value="Date:" for="fecha" />
-                    <b:inputText id="fecha"  a:placeholder="Worksheet date creation" value="#{hojasTrabajoController.selected.fecha}" title="#{bundle.CreateHojasTrabajoTitle_fecha}" required="true" requiredMessage="#{bundle.CreateHojasTrabajoRequiredMessage_fecha}">
-                        <f:convertDateTime pattern="dd/MM/yyyy" />
-                    </b:inputText>
-                </div>
-                    
-                <div class="form group has-success">
-                    <h:outputLabel value="Status:" for="idEstatus" />
-                    <h:selectOneMenu id="idEstatus" value="#{hojasTrabajoController.selected.idEstatus}" title="#{bundle.CreateHojasTrabajoTitle_idEstatus}" required="true" requiredMessage="#{bundle.CreateHojasTrabajoRequiredMessage_idEstatus}">
-                        <f:selectItems value="#{estatusController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
-                </div>
-                <div class="form group has-success">
-                    <h:outputLabel value="Skill:" for="idHabilidad" />
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="Duracion de la hoja de trabajo" for="duracionHoja" />
+                    <h:inputText id="duracionHoja" value="#{hojasTrabajoController.selected.duracionHoja}" title="#{bundle.CreateHojasTrabajoTitle_duracionHoja}" required="true" requiredMessage="#{bundle.CreateHojasTrabajoRequiredMessage_duracionHoja}"/>
+                    <h:outputLabel value="Nombre de la hoja" for="nombreHoja" />
+                    <h:inputText id="nombreHoja" value="#{hojasTrabajoController.selected.nombreHoja}" title="#{bundle.CreateHojasTrabajoTitle_nombreHoja}" required="true" requiredMessage="#{bundle.CreateHojasTrabajoRequiredMessage_nombreHoja}"/>
+                    <h:outputLabel value="Fecha (MM/dd/yyyy HH:mm:ss)" for="fecha" />
+                    <h:inputText id="fecha" value="#{hojasTrabajoController.selected.fecha}" title="#{bundle.CreateHojasTrabajoTitle_fecha}" required="true" requiredMessage="#{bundle.CreateHojasTrabajoRequiredMessage_fecha}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="Habilidad" for="idHabilidad" />
                     <h:selectOneMenu id="idHabilidad" value="#{hojasTrabajoController.selected.idHabilidad}" title="#{bundle.CreateHojasTrabajoTitle_idHabilidad}" required="true" requiredMessage="#{bundle.CreateHojasTrabajoRequiredMessage_idHabilidad}">
                         <f:selectItems value="#{habilidadController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
-                </div>
-                <div class="form group has-success">
-                    <h:outputLabel value="Material:" for="idMaterial" />
+                    <h:outputLabel value="Cuenta con algun material" for="idMaterial" />
                     <h:selectOneMenu id="idMaterial" value="#{hojasTrabajoController.selected.idMaterial}" title="#{bundle.CreateHojasTrabajoTitle_idMaterial}" required="true" requiredMessage="#{bundle.CreateHojasTrabajoRequiredMessage_idMaterial}">
                         <f:selectItems value="#{materialApoyoController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu> 
-                </div>
-                <div class="form group has-success">
-                    <h:outputLabel value="Level:" for="idNivel" />
+                    </h:selectOneMenu>
+                    <h:outputLabel value="Nivel" for="idNivel" />
                     <h:selectOneMenu id="idNivel" value="#{hojasTrabajoController.selected.idNivel}" title="#{bundle.CreateHojasTrabajoTitle_idNivel}" required="true" requiredMessage="#{bundle.CreateHojasTrabajoRequiredMessage_idNivel}">
                         <f:selectItems value="#{nivelController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
-                </div>
-                <div class="form group has-success">
-                    <h:outputLabel value="Author:" for="idAutor" />
+                    <h:outputLabel value="Autor" for="idAutor" />
                     <h:selectOneMenu id="idAutor" value="#{hojasTrabajoController.selected.idAutor}" title="#{bundle.CreateHojasTrabajoTitle_idAutor}" required="true" requiredMessage="#{bundle.CreateHojasTrabajoRequiredMessage_idAutor}">
                         <f:selectItems value="#{autorActividadController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
-                </div>
-                <div class="form group has-success">
-                    <h:outputLabel value="Lenguage:" for="idIdioma" />
+                    <h:outputLabel value="Idioma" for="idIdioma" />
                     <h:selectOneMenu id="idIdioma" value="#{hojasTrabajoController.selected.idIdioma}" title="#{bundle.CreateHojasTrabajoTitle_idIdioma}" required="true" requiredMessage="#{bundle.CreateHojasTrabajoRequiredMessage_idIdioma}">
                         <f:selectItems value="#{idiomaController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
-                </div>
-                <div class="form group has-success">
-                    <h:outputLabel value="Rating:" for="idRating" />
+                    <h:outputLabel value="Rating" for="idRating" />
                     <h:selectOneMenu id="idRating" value="#{hojasTrabajoController.selected.idRating}" title="#{bundle.CreateHojasTrabajoTitle_idRating}" required="true" requiredMessage="#{bundle.CreateHojasTrabajoRequiredMessage_idRating}">
                         <f:selectItems value="#{ratingController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
-                </div>
+                </h:panelGrid>
+                <br />
+                <h:commandButton action="#{hojasTrabajoController.create}" value="Guardar Hoja" />
+                <br />
+                <br />
+                <h:commandButton action="#{hojasTrabajoController.prepareList}" value="Mostrar todas las hojas" immediate="true"/>
+                <br />
                 <br />
                 
-                <div class="fileUpload btn btn-primary">
-                    <span>Upload</span>
-                    <input type="file" class="upload" />
-                </div>
-                <br/><br/><br/>
-                    <b:commandButton action="#{hojasTrabajoController.create}" look="primary" size="md" value="Save" />
-                    <b:commandButton action="#{hojasTrabajoController.prepareList}" value="Show all elements"  immediate="true"/>
-              
             </h:form>
-           </div>
         </ui:define>
     </ui:composition>
 
