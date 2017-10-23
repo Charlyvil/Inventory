@@ -1,4 +1,4 @@
-DROP DATABASE IF EXISTS Inventario;
+DROP DATABASE IF EXISTS inventario;
 create database inventario;
 use inventario;
 

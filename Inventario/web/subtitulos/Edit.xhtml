@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditSubtitulosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditSubtitulosLabel_idSubtitulos}" for="idSubtitulos" />
+                    <h:inputText id="idSubtitulos" value="#{subtitulosController.selected.idSubtitulos}" title="#{bundle.EditSubtitulosTitle_idSubtitulos}" required="true" requiredMessage="#{bundle.EditSubtitulosRequiredMessage_idSubtitulos}"/>
+                    <h:outputLabel value="#{bundle.EditSubtitulosLabel_idiomaSubtitulos}" for="idiomaSubtitulos" />
+                    <h:inputText id="idiomaSubtitulos" value="#{subtitulosController.selected.idiomaSubtitulos}" title="#{bundle.EditSubtitulosTitle_idiomaSubtitulos}" required="true" requiredMessage="#{bundle.EditSubtitulosRequiredMessage_idiomaSubtitulos}"/>
+                </h:panelGrid>
+                <h:commandLink action="#{subtitulosController.update}" value="#{bundle.EditSubtitulosSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditSubtitulosViewLink}"/>
+                <br />
+                <h:commandLink action="#{subtitulosController.prepareList}" value="#{bundle.EditSubtitulosShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditSubtitulosIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

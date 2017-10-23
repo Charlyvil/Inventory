@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateRevistasTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateRevistasLabel_idRevista}" for="idRevista" />
+                    <h:inputText id="idRevista" value="#{revistasController.selected.idRevista}" title="#{bundle.CreateRevistasTitle_idRevista}" required="true" requiredMessage="#{bundle.CreateRevistasRequiredMessage_idRevista}"/>
+                    <h:outputLabel value="#{bundle.CreateRevistasLabel_tituloRevista}" for="tituloRevista" />
+                    <h:inputText id="tituloRevista" value="#{revistasController.selected.tituloRevista}" title="#{bundle.CreateRevistasTitle_tituloRevista}" required="true" requiredMessage="#{bundle.CreateRevistasRequiredMessage_tituloRevista}"/>
+                    <h:outputLabel value="#{bundle.CreateRevistasLabel_nombreRevista}" for="nombreRevista" />
+                    <h:inputText id="nombreRevista" value="#{revistasController.selected.nombreRevista}" title="#{bundle.CreateRevistasTitle_nombreRevista}" required="true" requiredMessage="#{bundle.CreateRevistasRequiredMessage_nombreRevista}"/>
+                    <h:outputLabel value="#{bundle.CreateRevistasLabel_fecha}" for="fecha" />
+                    <h:inputText id="fecha" value="#{revistasController.selected.fecha}" title="#{bundle.CreateRevistasTitle_fecha}" required="true" requiredMessage="#{bundle.CreateRevistasRequiredMessage_fecha}"/>
+                    <h:outputLabel value="#{bundle.CreateRevistasLabel_idEstado}" for="idEstado" />
+                    <h:inputText id="idEstado" value="#{revistasController.selected.idEstado}" title="#{bundle.CreateRevistasTitle_idEstado}" required="true" requiredMessage="#{bundle.CreateRevistasRequiredMessage_idEstado}"/>
+                    <h:outputLabel value="#{bundle.CreateRevistasLabel_idRating}" for="idRating" />
+                    <h:selectOneMenu id="idRating" value="#{revistasController.selected.idRating}" title="#{bundle.CreateRevistasTitle_idRating}" required="true" requiredMessage="#{bundle.CreateRevistasRequiredMessage_idRating}">
+                        <f:selectItems value="#{ratingController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateRevistasLabel_idEditorial}" for="idEditorial" />
+                    <h:selectOneMenu id="idEditorial" value="#{revistasController.selected.idEditorial}" title="#{bundle.CreateRevistasTitle_idEditorial}" required="true" requiredMessage="#{bundle.CreateRevistasRequiredMessage_idEditorial}">
+                        <f:selectItems value="#{editorialController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{revistasController.create}" value="#{bundle.CreateRevistasSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{revistasController.prepareList}" value="#{bundle.CreateRevistasShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateRevistasIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

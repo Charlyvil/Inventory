@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateSubtitulosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateSubtitulosLabel_idSubtitulos}" for="idSubtitulos" />
+                    <h:inputText id="idSubtitulos" value="#{subtitulosController.selected.idSubtitulos}" title="#{bundle.CreateSubtitulosTitle_idSubtitulos}" required="true" requiredMessage="#{bundle.CreateSubtitulosRequiredMessage_idSubtitulos}"/>
+                    <h:outputLabel value="#{bundle.CreateSubtitulosLabel_idiomaSubtitulos}" for="idiomaSubtitulos" />
+                    <h:inputText id="idiomaSubtitulos" value="#{subtitulosController.selected.idiomaSubtitulos}" title="#{bundle.CreateSubtitulosTitle_idiomaSubtitulos}" required="true" requiredMessage="#{bundle.CreateSubtitulosRequiredMessage_idiomaSubtitulos}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{subtitulosController.create}" value="#{bundle.CreateSubtitulosSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{subtitulosController.prepareList}" value="#{bundle.CreateSubtitulosShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateSubtitulosIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

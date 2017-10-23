@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewSubtitulosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewSubtitulosLabel_idSubtitulos}"/>
+                    <h:outputText value="#{subtitulosController.selected.idSubtitulos}" title="#{bundle.ViewSubtitulosTitle_idSubtitulos}"/>
+                    <h:outputText value="#{bundle.ViewSubtitulosLabel_idiomaSubtitulos}"/>
+                    <h:outputText value="#{subtitulosController.selected.idiomaSubtitulos}" title="#{bundle.ViewSubtitulosTitle_idiomaSubtitulos}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{subtitulosController.destroyAndView}" value="#{bundle.ViewSubtitulosDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewSubtitulosEditLink}"/>
+                <br />
+                <h:commandLink action="#{subtitulosController.prepareCreate}" value="#{bundle.ViewSubtitulosCreateLink}" />
+                <br />
+                <h:commandLink action="#{subtitulosController.prepareList}" value="#{bundle.ViewSubtitulosShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewSubtitulosIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewLibrosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewLibrosLabel_idLibro}"/>
+                    <h:outputText value="#{librosController.selected.idLibro}" title="#{bundle.ViewLibrosTitle_idLibro}"/>
+                    <h:outputText value="#{bundle.ViewLibrosLabel_isbn}"/>
+                    <h:outputText value="#{librosController.selected.isbn}" title="#{bundle.ViewLibrosTitle_isbn}"/>
+                    <h:outputText value="#{bundle.ViewLibrosLabel_cantidad}"/>
+                    <h:outputText value="#{librosController.selected.cantidad}" title="#{bundle.ViewLibrosTitle_cantidad}"/>
+                    <h:outputText value="#{bundle.ViewLibrosLabel_areaLibro}"/>
+                    <h:outputText value="#{librosController.selected.areaLibro}" title="#{bundle.ViewLibrosTitle_areaLibro}"/>
+                    <h:outputText value="#{bundle.ViewLibrosLabel_añoPublicacion}"/>
+                    <h:outputText value="#{librosController.selected.añoPublicacion}" title="#{bundle.ViewLibrosTitle_añoPublicacion}"/>
+                    <h:outputText value="#{bundle.ViewLibrosLabel_tituloLibro}"/>
+                    <h:outputText value="#{librosController.selected.tituloLibro}" title="#{bundle.ViewLibrosTitle_tituloLibro}"/>
+                    <h:outputText value="#{bundle.ViewLibrosLabel_tipoLibro}"/>
+                    <h:outputText value="#{librosController.selected.tipoLibro}" title="#{bundle.ViewLibrosTitle_tipoLibro}"/>
+                    <h:outputText value="#{bundle.ViewLibrosLabel_audioLibro}"/>
+                    <h:outputText value="#{librosController.selected.audioLibro}" title="#{bundle.ViewLibrosTitle_audioLibro}"/>
+                    <h:outputText value="#{bundle.ViewLibrosLabel_idRating}"/>
+                    <h:outputText value="#{librosController.selected.idRating}" title="#{bundle.ViewLibrosTitle_idRating}"/>
+                    <h:outputText value="#{bundle.ViewLibrosLabel_idIdioma}"/>
+                    <h:outputText value="#{librosController.selected.idIdioma}" title="#{bundle.ViewLibrosTitle_idIdioma}"/>
+                    <h:outputText value="#{bundle.ViewLibrosLabel_idNivel}"/>
+                    <h:outputText value="#{librosController.selected.idNivel}" title="#{bundle.ViewLibrosTitle_idNivel}"/>
+                    <h:outputText value="#{bundle.ViewLibrosLabel_idAutorlibros}"/>
+                    <h:outputText value="#{librosController.selected.idAutorlibros}" title="#{bundle.ViewLibrosTitle_idAutorlibros}"/>
+                    <h:outputText value="#{bundle.ViewLibrosLabel_idEditorial}"/>
+                    <h:outputText value="#{librosController.selected.idEditorial}" title="#{bundle.ViewLibrosTitle_idEditorial}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{librosController.destroyAndView}" value="#{bundle.ViewLibrosDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewLibrosEditLink}"/>
+                <br />
+                <h:commandLink action="#{librosController.prepareCreate}" value="#{bundle.ViewLibrosCreateLink}" />
+                <br />
+                <h:commandLink action="#{librosController.prepareList}" value="#{bundle.ViewLibrosShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewLibrosIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
